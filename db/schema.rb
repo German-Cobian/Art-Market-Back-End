@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_223102) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_24_224738) do
   create_table "creations", force: :cascade do |t|
     t.string "artist"
     t.string "title"
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_223102) do
     t.string "art_category"
     t.string "country_of_origin"
     t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.boolean "sale"
+    t.integer "quantity"
+    t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
