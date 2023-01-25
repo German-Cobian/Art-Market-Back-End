@@ -1,4 +1,5 @@
 class V1::PurchasesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     render json: Purchase.all.to_json

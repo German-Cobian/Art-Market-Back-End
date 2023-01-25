@@ -1,5 +1,6 @@
 class V1::CreationsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     render json: Creation.all.to_json
   end
