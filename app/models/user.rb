@@ -6,6 +6,5 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
   has_many :purchases, dependent: :destroy
 
-  validates :username, uniqueness: { case_sensitive: false }
   validates :password, presence: true
 end
