@@ -18,23 +18,31 @@ class V1::CreationsController < ApplicationController
   end
 
   def create
+    if current_user.admin?
     @creation = Creation.new(creation_params)
 
-    if @creation.save
-      render json: CreationSerializer.new(@creation).serializable_hash[:data][:attributes], status: :created
+      if @creation.save
+        render json: CreationSerializer.new(@creation).serializable_hash[:data][:attributes], status: :created
+      else
+        render status: 500, json: { error: 'Art piece could not be created' }.to_json
+      end
     else
-      render status: 500, json: { error: 'Art piece could not be created' }.to_json
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
   def destroy
-    creation = Creation.find_by(id: params[:id])
+    if current_user.admin?
+      creation = Creation.find_by(id: params[:id])
 
-    if creation.nil?
-      render status: 404, json: { error: 'Art piece not found' }.to_json
+      if creation.nil?
+        render status: 404, json: { error: 'Art piece not found' }.to_json
+      else
+        creation.destroy
+        render json: { message: 'Art piece deleted' }.to_json
+      end
     else
-      creation.destroy
-      render json: { message: 'Art piece deleted' }.to_json
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
