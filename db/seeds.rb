@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user_1 = User.create(username: 'GlumpPunk09', role: 1, password: '12345')
-user_1 = User.create(username: 'BillyBoy10', role: 0, password: '67890')
+user_1 = User.create(username: 'GlumpPunk09', role: 1, email: 'glunk@gamil.com', password: '12345')
+user_1 = User.create(username: 'BillyBoy10', role: 0, email: 'billoy@hotmail.com', password: '67890')
 
 creation_1 = Creation.create(artist: 'Pablo Picasso', title: 'Les Demoiselles d Avignon', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '40 x 50 cm', date_of_composition: '1907',  art_category: 'cubism', country_of_origin: 'Spain', price: '9500')
 creation_1.creation_pic.attach(io: File.open("app/assets/images/Les-Demoiselles-dAvignon.jpeg"), filename: "Demoiselles.jpeg")
