@@ -2,9 +2,15 @@ class V1::PurchasesController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    @purchases = Purchase.all
-
-    render json: PurchaseSerializer.new(@purchases).serializable_hash[:data], status: :ok
+    @purchases = if current_user.admin?
+                  Purchase.all
+                else
+                  current_user.purchases
+   
+    if @purchases == []
+      render json: { message: 'No transactions found' }, status: :not_found
+    else
+      render json: PurchaseSerializer.new(@purchases).serializable_hash[:data], status: :ok
   end
 
   def show
