@@ -6,11 +6,13 @@ class V1::PurchasesController < ApplicationController
                   Purchase.all
                 else
                   current_user.purchases
+                end
    
     if @purchases == []
       render json: { message: 'No transactions found' }, status: :not_found
     else
       render json: PurchaseSerializer.new(@purchases).serializable_hash[:data], status: :ok
+    end
   end
 
   def show
