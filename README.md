@@ -2,7 +2,7 @@
 ![](https://img.shields.io/static/v1?label=BY&message=German-cobian&color=red)
 
 
-# Journeymen
+# Art-Market-Back-End
 ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
@@ -31,7 +31,7 @@ Admins are allowed these additional actions:
 
 ## Front-end Repository 
 
-[ReactApp](https://github.com/German-Cobian/Journeyman-Back-End)
+[ReactApp](https://github.com/German-Cobian/Art-Market-Front-End)
 
 
 ## Built With
@@ -49,7 +49,7 @@ If you have Rails 7 installed, you can skip to the [Setup](#setup) section
 
 First clone this repo by running this command in your terminal:
 
-git clone git@github.com:German-Cobian/Art-Market.git
+git clone git@github.com:German-Cobian/Art-Market-Back-End.git
 
 <hr>
 
@@ -113,7 +113,7 @@ Platform | Badge |
 ## Contributing
 
 Contributions, issues and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/German-Cobian/Art-Market/issues)
+Feel free to check the [issues page](https://github.com/German-Cobian/Art-Market-Back-End/issues)
 <hr>
 
 ## Show your support
@@ -128,4 +128,4 @@ Original design [Vespa](https://www.behance.net/gallery/26425031/Vespa-Responsiv
 
 ## 📝 License
 
-This project is [MIT](https://github.com/German-Cobian/Art-Market/blob/main/LICENSE) lic
+This project is [MIT](https://github.com/German-Cobian/Art-Market-Back-End/blob/main/LICENSE) lic
