@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user_1 = User.create(username: 'Admin User', role: 1, email: 'admin@gmail.com', password: 'admin123')
-user_2 = User.create(username: 'Reg User', role: 0, email: 'reg@hotmail.com', password: 'admin123')
+user_2 = User.create(username: 'Reg User', role: 0, email: 'reg@hotmail.com', password: 'reg123')
 user_3 = User.create(username: 'Admin User2', role: 1, email: 'admin2@gmail.com', password: 'admin2123')
 
 creation_1 = Creation.create(artist: 'Pablo Picasso', title: 'Les Demoiselles d Avignon', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '40 x 50 cm', date_of_composition: '1907',  art_category: 'cubism', country_of_origin: 'Spain', price: '9500')
@@ -28,5 +28,7 @@ creation_5.creation_pic.attach(io: File.open("app/assets/images/Impression-Sunri
 creation_6 = Creation.create(artist: 'Vincent Van Gogh', title: 'Vase with Twelve Sunflowers', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '35 x 40 cm', date_of_composition: '1864', art_category: 'post-impressionism', country_of_origin: 'France', price: '7300')
 creation_6.creation_pic.attach(io: File.open("app/assets/images/Vase-with-Twelve-Sunflowers.jpeg"), filename: "Sunflowers.jpeg")
 
-purchase_1 = Purchase.create(user_id: 1, creation_id: 1, sale: true, quantity: 1)
-purchase_2 = Purchase.create(user_id: 2, creation_id: 2, sale: true, quantity: 2)
+purchase_1 = Purchase.create(user_id: 1, creation_id: 1, sale: true, quantity: 1, total: 9500.00)
+purchase_2 = Purchase.create(user_id: 1, creation_id: 3, sale: true, quantity: 3, total: 12900.00)
+purchase_3 = Purchase.create(user_id: 2, creation_id: 5, sale: true, quantity: 1, total: 6300.00)
+purchase_4 = Purchase.create(user_id: 2, creation_id: 2, sale: true, quantity: 2, total: 4600.00)

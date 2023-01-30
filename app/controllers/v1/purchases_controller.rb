@@ -16,12 +16,17 @@ class V1::PurchasesController < ApplicationController
   end
 
   def show
-    @purchase = Purchase.find_by(id: params[:id])
-
-    if @purchase.nil?
+    @purchases =  if current_user.admin?
+                      Purchase.all
+                  else
+                      current_user.purchases
+                  end
+    
+    @purchaseItem = @purchases.find_by(id: params[:id])
+    if @purchaseItem.nil?
       render status: 404, json: { error: 'Transaction not found' }.to_json
     else
-      render json: PurchaseSerializer.new(@purchase).serializable_hash[:data][:attributes], status: :ok
+      render json: PurchaseSerializer.new(@purchaseItem).serializable_hash[:data][:attributes], status: :ok
     end
   end
 
@@ -36,13 +41,29 @@ class V1::PurchasesController < ApplicationController
     end
   end
 
-  def destroy
-    purchase = Purchase.find_by(id: params[:id])
+  # def destroy
+  #  purchase = Purchase.find_by(id: params[:id])
 
-    if purchase.nil?
+  #  if purchase.nil?
+  #    render status: 404, json: { error: 'Transaction not found' }.to_json
+  #  else
+  #    purchase.destroy
+  #    render json: { message: 'Transaction deleted' }.to_json
+  #  end
+  # end
+
+  def destroy
+    @purchases =  if current_user.admin?
+                  Purchase.all
+                else
+                  current_user.purchases
+                end
+
+    @purchaseItem = @purchases.find_by(id: params[:id])
+    if @purchaseItem.nil?
       render status: 404, json: { error: 'Transaction not found' }.to_json
     else
-      purchase.destroy
+      @purchaseItem.destroy
       render json: { message: 'Transaction deleted' }.to_json
     end
   end
