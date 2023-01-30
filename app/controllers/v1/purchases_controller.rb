@@ -41,17 +41,6 @@ class V1::PurchasesController < ApplicationController
     end
   end
 
-  # def destroy
-  #  purchase = Purchase.find_by(id: params[:id])
-
-  #  if purchase.nil?
-  #    render status: 404, json: { error: 'Transaction not found' }.to_json
-  #  else
-  #    purchase.destroy
-  #    render json: { message: 'Transaction deleted' }.to_json
-  #  end
-  # end
-
   def destroy
     @purchases =  if current_user.admin?
                   Purchase.all
