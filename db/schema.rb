@@ -54,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_221641) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.boolean "sale"
     t.integer "quantity"
     t.decimal "total"
     t.datetime "created_at", null: false

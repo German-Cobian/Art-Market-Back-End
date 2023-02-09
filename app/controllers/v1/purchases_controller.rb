@@ -60,6 +60,6 @@ class V1::PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase).permit(:user_id, :creation_id, :sale, :quantity)
+    params.require(:purchase).permit(:creation_id, :quantity)
   end
 end
